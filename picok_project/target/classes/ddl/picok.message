@@ -1,0 +1,25 @@
+CREATE TABLE picok.message (
+    message_idx		NUMBER		NOT NULL PRIMARY KEY,
+    chat_idx 		NUMBER		NOT NULL,
+    write_id 		VARCHAR2(30) NOT NULL,
+    write_content	VARCHAR2(500),
+    writedate 		TIMESTAMP 	DEFAULT systimestamp NOT NULL, 
+    readdate 		TIMESTAMP
+);
+
+
+ALTER TABLE message
+ADD CONSTRAINT fk_write_id
+FOREIGN KEY (write_id)
+REFERENCES member(id)
+ON DELETE CASCADE;
+
+ALTER TABLE message
+ADD CONSTRAINT fk_chat_idx
+FOREIGN KEY (chat_idx)
+REFERENCES chat(chat_idx)
+ON DELETE CASCADE;
+
+CREATE SEQUENCE picok.message_SEQ
+START WITH 1
+INCREMENT BY 1;

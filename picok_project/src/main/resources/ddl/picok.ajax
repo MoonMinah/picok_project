@@ -1,0 +1,11 @@
+CREATE TABLE picok.AJAX
+(
+    idX          VARCHAR2(38, 0)    NOT NULL, 
+    name         VARCHAR2(30)       NOT NULL, 
+    age          VARCHAR2(38, 0)    NOT NULL, 
+    gender       VARCHAR2(6)        NOT NULL, 
+    email        VARCHAR2(100)      NOT NULL, 
+    
+);
+
+select * from ajax;

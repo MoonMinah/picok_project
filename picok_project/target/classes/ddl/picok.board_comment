@@ -1,0 +1,26 @@
+CREATE TABLE picok.board_comment
+(
+    board_idx           INT              NOT NULL, 
+    comment_idx         INT              NOT NULL, 
+    id                  VARCHAR2(30)     NOT NULL, 
+    comment_content     VARCHAR2(500)    NOT NULL, 
+    comment_reg_date    TIMESTAMP        DEFAULT sysdate NOT NULL, 
+     PRIMARY KEY (comment_idx)
+);
+
+CREATE SEQUENCE picok.board_comment_SEQ
+START WITH 1
+INCREMENT BY 1;
+
+ALTER TABLE picok.board_comment
+    ADD CONSTRAINT FK_board_comment_id_member_id FOREIGN KEY (id)
+        REFERENCES picok.member (id) ON DELETE CASCADE ;
+ALTER TABLE picok.board_comment
+    ADD CONSTRAINT FK_board_comment_board_idx_board_board_idx FOREIGN KEY (board_idx)
+        REFERENCES picok.board (board_idx) ON DELETE CASCADE ;
+        
+
+//board_idx(부모)게시글 지워지면 연관 1댓글 / 2좋아요 / 3조회수 / 4신고수 (자식)지워져야함 
+ ALTER TABLE picok.board_comment
+    ADD CONSTRAINT FK_board_comment_board_idx FOREIGN KEY (board_idx)
+        REFERENCES picok.board (board_idx) ON DELETE CASCADE ;

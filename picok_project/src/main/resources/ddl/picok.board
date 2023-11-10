@@ -1,0 +1,72 @@
+CREATE TABLE picok.board
+(
+    board_idx         INT              NOT NULL, 
+    id                VARCHAR2(30)     NOT NULL, 
+    category          VARCHAR2(20)     NOT NULL, 
+    board_title       VARCHAR2(50)     NOT NULL, 
+    board_content     VARCHAR2(500)    NULL, 
+	file_name		  VARCHAR2(255)    NOT NULL, 
+    board_reg_date    TIMESTAMP        DEFAULT sysdate NOT NULL, 
+    view_num          INT              DEFAULT 0 NOT NULL, 
+    likes_num         INT              DEFAULT 0 NOT NULL, 
+    report_num        INT              DEFAULT 0 NOT NULL, 
+    deleteOK          CHAR(1)          DEFAULT 'n' NOT NULL, 
+    secretOK          char(1)          DEFAULT 'n' NOT NULL, 
+     PRIMARY KEY (board_idx)
+);
+
+CREATE SEQUENCE picok.board_SEQ
+START WITH 1
+INCREMENT BY 1;
+
+-- member_id(부모)지워지면 본인의 1게시글 / 2댓글 / 3좋아요 (자식)지워져야함
+ALTER TABLE picok.board
+    ADD CONSTRAINT FK_board_id_member_id FOREIGN KEY (id)
+        REFERENCES picok.member (id) ON DELETE CASCADE ;
+        
+        
+INSERT INTO PICOK.BOARD
+(BOARD_IDX, ID, CATEGORY, BOARD_TITLE, BOARD_CONTENT, FILE_NAME, BOARD_REG_DATE, VIEW_NUM, LIKES_NUM, REPORT_NUM, DELETEOK, SECRETOK)
+VALUES(picok.member_SEQ.nextval, 'admin', '2', '건물2', NULL, 'mypic8.jpg', TIMESTAMP '2023-06-30 06:04:28.000000', 0, 0, 0, 'n', 'n');
+INSERT INTO PICOK.BOARD
+(BOARD_IDX, ID, CATEGORY, BOARD_TITLE, BOARD_CONTENT, FILE_NAME, BOARD_REG_DATE, VIEW_NUM, LIKES_NUM, REPORT_NUM, DELETEOK, SECRETOK)
+VALUES(picok.member_SEQ.nextval, 'admin', '2', '건물3', NULL, 'mypic8.jpg', TIMESTAMP '2023-06-30 06:04:28.000000', 0, 0, 0, 'n', 'n');
+INSERT INTO PICOK.BOARD
+(BOARD_IDX, ID, CATEGORY, BOARD_TITLE, BOARD_CONTENT, FILE_NAME, BOARD_REG_DATE, VIEW_NUM, LIKES_NUM, REPORT_NUM, DELETEOK, SECRETOK)
+VALUES(picok.member_SEQ.nextval, 'admin', '2', '건물4', NULL, 'mypic8.jpg', TIMESTAMP '2023-06-30 06:04:28.000000', 0, 0, 0, 'n', 'n');
+
+delete from board;
+drop SEQUENCE board_idx_seq;
+create SEQUENCE board_idx_seq;
+
+commit;
+
+select * from (
+			select rownum rnum, TT.* from (
+				select * from board order by board_idx desc
+			)TT where rownum <= 3
+		)where rnum >= 1
+		
+		
+		
+-- board_idx(부모)게시글 지워지면 연관 1댓글 / 2좋아요 / 3조회수 / 4신고수 (자식)지워져야함 
+
+ ALTER TABLE picok.likes
+    ADD CONSTRAINT FK_likes_board_idx FOREIGN KEY (board_idx)
+        REFERENCES picok.board (board_idx) ON DELETE CASCADE ;
+
+ ALTER TABLE picok.view_log
+    ADD CONSTRAINT FK_view_log_board_idx FOREIGN KEY (board_idx)
+        REFERENCES picok.board (board_idx) ON DELETE CASCADE ;
+
+ ALTER TABLE picok.board_comment
+    ADD CONSTRAINT FK_board_comment_board_idx FOREIGN KEY (board_idx)
+        REFERENCES picok.board (board_idx) ON DELETE CASCADE ;
+
+ ALTER TABLE picok.report
+    ADD CONSTRAINT FK_report_board_idx FOREIGN KEY (board_idx)
+        REFERENCES picok.board (board_idx) ON DELETE CASCADE ;
+
+
+SELECT LAST_NUMBER FROM USER_SEQUENCES WHERE SEQUENCE_NAME = 'BOARD_SEQ';
+ALTER SEQUENCE BOARD_SEQ INCREMENT BY 1;

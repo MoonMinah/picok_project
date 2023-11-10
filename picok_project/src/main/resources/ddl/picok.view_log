@@ -1,0 +1,8 @@
+CREATE TABLE picok.view_log (
+	board_idx       NUMBER(38,0)    NOT NULL,
+	ip				VARCHAR2(15)    NOT NULL
+);
+
+insert into picok.view_log(board_idx,ip) values (209,'0:0:0:0:0:0:0:1');
+
+commit;

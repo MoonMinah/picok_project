@@ -1,0 +1,9 @@
+CREATE TABLE picok.reply
+(
+    reply_idx		NUMBER              NOT NULL,
+    board_idx		NUMBER              NOT NULL,
+    comment_idx		NUMBER              NOT NULL,
+    id				VARCHAR2(30)		NOT NULL,
+    reply_content	VARCHAR2(500)		NOT NULL,
+    reply_reg_date	VARCHAR2(20)
+);

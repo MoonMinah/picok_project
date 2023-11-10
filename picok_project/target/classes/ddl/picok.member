@@ -1,0 +1,51 @@
+CREATE TABLE picok.member
+(
+    mem_idx      INT              NOT NULL, 
+    id           VARCHAR2(30)     NOT NULL, 
+    password     VARCHAR2(60)     NOT NULL, 
+    name         VARCHAR2(30)     NOT NULL, 
+    nickname     VARCHAR2(30)     NOT NULL, 
+    email        VARCHAR2(50)     NOT NULL, 
+    addr         VARCHAR2(255)    NULL, 
+    phone_num    VARCHAR2(20)     NULL, 
+    joindate     TIMESTAMP        DEFAULT sysdate NOT NULL, 
+    dropOK       CHAR(1)          DEFAULT 'n' NOT NULL, 
+    mem_lv       INT              DEFAULT 0 NOT NULL, 
+     PRIMARY KEY (id)
+);
+
+drop sequence member_mem_idx_seq;                                    
+
+CREATE SEQUENCE member_SEQ
+START WITH 1
+INCREMENT BY 1;
+
+delete from member;
+SELECT * FROM member;
+commit;
+
+CREATE SEQUENCE member_SEQ
+START WITH 1
+INCREMENT BY 1;
+drop table picok.member;
+
+insert into "MEMBER" (mem_idx,id,password,name,nickname,email,mem_lv) values (member_SEQ.nextval, 'admin', 1234, '관리자', '진짜관리자','admin@naver.com',1);
+insert into "MEMBER" (mem_idx,id,password,name,nickname,email) values (member_SEQ.nextval, 'sky00', 111, '진은영', '우냥','abc@naver.com');
+insert into "MEMBER" (mem_idx,id,password,name,nickname,email) values (member_SEQ.nextval, 'sky01', 222, '차수현', '챠니','def@naver.com');
+insert into "MEMBER" (mem_idx,id,password,name,nickname,email) values (member_SEQ.nextval, 'sky03', 333, '문민아', '미나','ghij@naver.com');
+insert into "MEMBER" (mem_idx,id,password,name,nickname,email) values (member_SEQ.nextval, 'sky04', 444, '전준혁', '다다','aklm@naver.com');
+insert into "MEMBER" (mem_idx,id,password,name,nickname,email) values (member_SEQ.nextval, 'sky05', 555, '박상아', '우다','nop@naver.com');
+insert into "MEMBER" (mem_idx,id,password,name,nickname,email) values (member_SEQ.nextval, 'sky06', 666, '이민환', '타타','qrs@naver.com');
+insert into "MEMBER" (mem_idx,id,password,name,nickname,email) values (member_SEQ.nextval, 'sky07', 777, '남현서', '하하','tuv@naver.com');
+insert into "MEMBER" (mem_idx,id,password,name,nickname,email) values (member_SEQ.nextval, 'sky08', 888, '오한민', '니니','wnf@naver.com');
+insert into "MEMBER" (mem_idx,id,password,name,nickname,email) values (member_SEQ.nextval, 'sky09', 999, '제제', '우우','jjj@naver.com');
+insert into "MEMBER" (mem_idx,id,password,name,nickname,email) values (member_SEQ.nextval, 'sky12', 123, '노노', '야옹','aaa@naver.com');
+insert into "MEMBER" (mem_idx,id,password,name,nickname,email) values (member_SEQ.nextval, 'sky45', 456, '유진', '디디','bbb@naver.com');
+insert into "MEMBER" (mem_idx,id,password,name,nickname,email) values (member_SEQ.nextval, 'sky78', 789, '하영', '나냐','ccc@naver.com');
+insert into "MEMBER" (mem_idx,id,password,name,nickname,email) values (member_SEQ.nextval, 'sky13', 135, '소영', '난냐','ddd@naver.com');
+insert into "MEMBER" (mem_idx,id,password,name,nickname,email) values (member_SEQ.nextval, 'sky79', 790, '정욱', '니뇨','eee@naver.com');
+insert into MEMBER (mem_idx,id,password,name,nickname,email) values (member_SEQ.nextval, 'sky24', 246, '대일', '샤샤','fff@naver.com');
+insert into PICOK."MEMBER" (mem_idx,id,password,name,nickname,email) values (picok.member_SEQ.nextval, 'sky80', 800, '승환', '투투','ggg@naver.com');
+insert into PICOK."MEMBER" (mem_idx,id,password,name,nickname,email) values (picok.member_SEQ.nextval, 'sky11', 1212, '수연', '후후','hhh@naver.com');
+insert into PICOK."MEMBER" (mem_idx,id,password,name,nickname,email) values (picok.member_SEQ.nextval, 'sky34', 3434, '세빈', '자자','iii@naver.com');
+insert into PICOK."MEMBER" (mem_idx,id,password,name,nickname,email) values (picok.member_SEQ.nextval, 'mina', 7878, '문민아', '미나','mina@naver.com');

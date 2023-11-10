@@ -1,0 +1,4 @@
+CREATE TABLE picok.report (
+	board_idx       NUMBER(38,0)    NOT NULL,
+	ip				VARCHAR2(20)    NOT NULL
+);

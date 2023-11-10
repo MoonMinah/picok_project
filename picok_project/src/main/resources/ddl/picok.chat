@@ -1,0 +1,24 @@
+#채팅테이블
+CREATE TABLE picok.chat (
+    chat_idx NUMBER PRIMARY KEY,
+    from_id VARCHAR2(30)  NOT NULL,
+    to_id VARCHAR2(30)  NOT NULL,
+    chatdate TIMESTAMP DEFAULT systimestamp NOT NULL, 
+    exit_id VARCHAR2(30)
+);
+
+ALTER TABLE chat
+ADD CONSTRAINT fk_from_id
+FOREIGN KEY (from_id)
+REFERENCES member(id)
+ON DELETE CASCADE;
+
+ALTER TABLE chat
+ADD CONSTRAINT fk_to_id
+FOREIGN KEY (to_id)
+REFERENCES member(id)
+ON DELETE CASCADE;
+
+CREATE SEQUENCE picok.chat_SEQ
+START WITH 1
+INCREMENT BY 1;

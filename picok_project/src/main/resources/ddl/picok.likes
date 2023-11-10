@@ -1,0 +1,15 @@
+CREATE TABLE picok.likes
+(
+    board_idx     	INT             NOT NULL, 
+    id            	VARCHAR2(30)    NOT NULL,
+    like_reg_date	TIMESTAMP
+     PRIMARY KEY (board_idx, id)
+);
+
+ALTER TABLE picok.likes
+    ADD CONSTRAINT FK_likes_board_idx_board_idx FOREIGN KEY (board_idx)
+        REFERENCES picok.board (board_idx) ON DELETE CASCADE ;
+
+ALTER TABLE picok.likes
+    ADD CONSTRAINT FK_likes_id_member_id FOREIGN KEY (id)
+        REFERENCES picok.member (id) ON DELETE CASCADE ;

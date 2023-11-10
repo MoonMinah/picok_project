@@ -1,0 +1,30 @@
+#알람테이블 
+CREATE TABLE picok.alarm
+(
+	alarm_idx    NUMBER(38,0)              NOT NULL, 
+    to_id        VARCHAR2(30)    NOT NULL, 
+    from_id      VARCHAR2(30)    NOT NULL, 
+    board_idx    NUMBER(38,0)    NOT NULL, 
+    board_title	 VARCHAR2(50)	 NOT NULL,
+	category     VARCHAR2(30)    NOT NULL,
+    alarmDate    TIMESTAMP       DEFAULT sysdate NOT NULL, 
+
+     PRIMARY KEY (alarm_idx)
+);
+
+ALTER TABLE picok.alarm
+ADD CONSTRAINT fk_board_board_idx
+FOREIGN KEY (board_idx) REFERENCES board(board_idx);
+
+ALTER TABLE picok.alarm
+ADD CONSTRAINT fk_member_to_id
+FOREIGN KEY (to_id) REFERENCES member(id);
+
+ALTER TABLE picok.alarm
+ADD CONSTRAINT fk_member_from_id
+FOREIGN KEY (from_id) REFERENCES member(id);
+
+#시퀀스 추가
+CREATE SEQUENCE picok.alarm_SEQ
+START WITH 1
+INCREMENT BY 1;
