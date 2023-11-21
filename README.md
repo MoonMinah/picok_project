@@ -5,4 +5,4 @@
 MVC구조로 데이터베이스는 Oracle을 이용했습니다.
 
 시연영상
-###[https://www.youtube.com/watch?v=AYHfJ97bato]
+https://www.youtube.com/watch?v=AYHfJ97bato
