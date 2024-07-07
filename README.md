@@ -28,7 +28,7 @@ https://www.youtube.com/watch?v=AYHfJ97bato
     
 관리자 페이지
 - 회원들의 회원정보와 게시글들을 검색하고 관리할 수 있습니다.
-- 
+
 
 ## 📌기술스택
 ![KakaoTalk_20240708_010546003](https://github.com/MoonMinah/picok_project/assets/133863745/9c5d5131-fc92-4c3b-8f0f-52662acd095f)
