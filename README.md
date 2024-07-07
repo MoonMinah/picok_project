@@ -16,6 +16,7 @@ https://www.youtube.com/watch?v=AYHfJ97bato
 회원가입/로그인  
 - 회원가입시 관리자와 유저를 구분하여 하나의 디비에 저장합니다.
 - 로그인시 관리자와 유저가 구별되어 페이지로 이동합니다.
+
 - 네이버 회원가입으로 간편하게 사이트를 이용할 수 있습니다.
   
 마이페이지  
@@ -30,4 +31,4 @@ https://www.youtube.com/watch?v=AYHfJ97bato
 - 
 
 ## 📌기술스택
-스프링 프레임워크를 기본으로 MVC구조, 데이터베이스는 Oracle을 이용했습니다.
+![KakaoTalk_20240708_010546003](https://github.com/MoonMinah/picok_project/assets/133863745/9c5d5131-fc92-4c3b-8f0f-52662acd095f)
