@@ -1,5 +1,6 @@
 # picok_project
-📸사진을 주제로 한 자유로운 커뮤니티 프로젝트입니다.📷
+📸사진을 주제로 한 자유로운 커뮤니티 프로젝트입니다.📷  
+
 
 ## 📌프로젝트
 ### 소개
@@ -8,7 +9,8 @@
 - 소켓채팅💌을 통해 사진에 대해 이야기 나누어 보아요.
   
 ### 시연영상
-https://www.youtube.com/watch?v=AYHfJ97bato
+https://www.youtube.com/watch?v=AYHfJ97bato  
+
 
 ## 📌기능 소개
 회원가입/로그인  
@@ -25,6 +27,7 @@ https://www.youtube.com/watch?v=AYHfJ97bato
     
 관리자 페이지
 - 회원들의 회원정보와 게시글들을 검색하고 관리할 수 있습니다.
+- 
 
 ## 📌기술스택
 스프링 프레임워크를 기본으로 MVC구조, 데이터베이스는 Oracle을 이용했습니다.
