@@ -26,7 +26,7 @@
 - 회원들의 회원정보와 게시글들을 검색하고 관리할 수 있습니다.
 
   
-### 📌 시연영상
+## 📌 시연영상
 https://www.youtube.com/watch?v=AYHfJ97bato  
 
 
